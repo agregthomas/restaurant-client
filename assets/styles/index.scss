@@ -1,1 +1,30 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'colors';
+@import 'scheme';
+@import 'typography';
+
+.box {
+  align-items: center;
+  background-color: $secondary;
+  border: 1px solid $white;
+  color: $font-color;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
+
+.failure {
+  color: $red;
+}
+
+.hover {
+  background-color: $pink;
+}
+
+.logged-in {
+  display: none;
+}
+
+.success {
+  color: $green;
+}

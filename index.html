@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>RESTaurant</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,70 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
-    </body>
+      <header>
+        <h1>RESTaurant: Boston Area Eats</h1>
+        <form id="quick-sign-in">
+          <input
+            type="submit"
+            value="Quick Sign-In" />
+        </form>
+      </header>
+      <hr>
+      <div class="logged-in">
+        <h2>Change Password</h2>
+        <form id="change-password">
+          <input
+            type="password"
+            name="passwords[old]"
+            placeholder="Enter your current password" />
+          <input
+            type="password"
+            name="passwords[new]"
+            placeholder="Enter your new password" />
+          <input
+            type="submit"
+            value="Change Password" />
+        </form>
+        <hr>
+      </div>
+      <div class="logged-in">
+        <h2>Sign Out</h2>
+        <button id="sign-out" type="button">
+        Logout
+        </button>
+        <hr>
+      </div>
+      <div class="logged-out">
+        <h2>Authenticate</h2>
+        <form id="sign-up">
+          <input
+          type="email"
+          name="credentials[email]"
+          placeholder="Enter your email" />
+          <input
+            type="password"
+            name="credentials[password]"
+            placeholder="Enter password" />
+          <input hidden class="confirm"
+            type="password"
+            name="credentials[password_confirmation]"
+            placeholder="Confirm password" />
+            <input
+              id="sign-in-button"
+              type="submit"
+              value="Sign In" />
+          <input
+            id="sign-up-button"
+            type="submit"
+            value="Sign Up" />
+        </form>
+        <hr>
+      </div>
+      <div>
+        <h2>User Feedback</h2>
+        <div id="results">
+        </div>
+        <hr>
+      </div>
+  </body>
 </html>
