@@ -53,6 +53,7 @@ const onSignOut = (event) => {
     .then((responseData) => {
       restaurantEvents.onLoadRestaurants(event)
       ui.onSignOutSuccess()
+      console.log('o harro')
     })
     .catch(ui.onSignoutFail)
 }
