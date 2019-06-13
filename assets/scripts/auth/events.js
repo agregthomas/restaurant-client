@@ -50,7 +50,10 @@ const onSignOut = (event) => {
   event.preventDefault()
 
   api.signOut()
-    .then(ui.onSignOutSuccess)
+    .then((responseData) => {
+      restaurantEvents.onLoadRestaurants(event)
+      ui.onSignOutSuccess()
+    })
     .catch(ui.onSignoutFail)
 }
 
