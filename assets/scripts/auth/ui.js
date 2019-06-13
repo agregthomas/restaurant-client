@@ -3,7 +3,8 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store.js')
 
-const onSuccess = () => $('form').trigger('reset')
+const onSuccess = () => $('#sign-up').trigger('reset')
+const onFail = () => $('#sign-up').trigger('reset')
 
 const onSignUpSuccess = (responseData) => {
   $('#results').html('')
@@ -74,6 +75,7 @@ const onSignInFail = (responseData) => {
   $('#results').append(userHTML)
   $('#results').removeClass()
   $('#results').addClass('failure')
+  onFail()
 }
 
 const onChangePasswordSuccess = (responseData) => {
@@ -83,7 +85,7 @@ const onChangePasswordSuccess = (responseData) => {
   $('#results').append(userHTML)
   $('#results').removeClass()
   $('#results').addClass('success')
-  onSuccess()
+  $('#change-password').trigger('reset')
 }
 
 const onChangePasswordFail = (responseData) => {
@@ -93,6 +95,8 @@ const onChangePasswordFail = (responseData) => {
   $('#results').append(userHTML)
   $('#results').removeClass()
   $('#results').addClass('failure')
+
+  $('#change-password').trigger('reset')
 }
 
 const onSignOutSuccess = (responseData) => {
