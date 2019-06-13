@@ -12,7 +12,6 @@ const onSignUp = (event) => {
 
   const form = event.target.parentNode
   const formData = getFormFields(form)
-  console.log(formData)
 
   api.signUp(formData)
     .then(ui.onSignUpSuccess)
@@ -24,8 +23,6 @@ const onSignIn = (event) => {
 
   const form = event.target.parentNode.parentNode
   const formData = getFormFields(form)
-  console.log(form)
-  console.log(formData)
 
   api.signIn(formData)
     .then((responseData) => {
@@ -53,7 +50,6 @@ const onSignOut = (event) => {
     .then((responseData) => {
       restaurantEvents.onLoadRestaurants(event)
       ui.onSignOutSuccess()
-      console.log('o harro')
     })
     .catch(ui.onSignoutFail)
 }
