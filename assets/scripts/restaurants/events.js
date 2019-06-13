@@ -49,7 +49,7 @@ const onCreateRestaurant = (event) => {
 const onUpdateClick = (event) => {
   event.preventDefault()
 
-  const restaurant = $(event.target.parentNode).siblings('.return')
+  const restaurant = $(event.target)
   const restaurantId = restaurant.data('id')
 
   $(`form.return[data-id='${restaurantId}'] input`).prop('disabled', false)
@@ -62,7 +62,7 @@ const onUpdateRestaurant = (event) => {
   const form = event.target
   const formData = getFormFields(form)
 
-  const restaurant = $(event.target.closest('.return'))
+  const restaurant = $(event.target)
   const restaurantId = restaurant.data('id')
 
   api.updateRestaurant(formData, restaurantId)
