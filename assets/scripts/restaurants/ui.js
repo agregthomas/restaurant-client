@@ -2,6 +2,8 @@
 
 const indexRestaurants = require('../templates/index-restaurants.handlebars')
 
+const onSuccess = () => $('#createRestaurant').trigger('reset')
+
 // General use function to handle HTML for fail and success.
 const resultCheck = (criteria, userHTML) => {
   $('#results').empty()
@@ -25,6 +27,11 @@ const indexRestaurantsFail = () => {
   resultCheck('failure', userHTML)
 }
 
+const deleteRestaurantSuccess = () => {
+  const userHTML = `Succesfully deleted Restaurant.`
+  resultCheck('success', userHTML)
+}
+
 const deleteRestaurantFail = () => {
   const userHTML = `Failed to delete Restaurant.`
   resultCheck('failure', userHTML)
@@ -34,11 +41,17 @@ const createRestaurantSuccess = (responseData) => {
   const userHTML = `New restaurant created with ID = ${responseData.restaurant.id} and named ${responseData.restaurant.name}`
 
   resultCheck('success', userHTML)
+  onSuccess()
 }
 
 const createRestaurantFail = () => {
   const userHTML = `Failed to create Restaurant.`
   resultCheck('failure', userHTML)
+}
+
+const updateRestaurantSuccess = (responseData) => {
+  const userHTML = `Restaurant successfully updated.`
+  resultCheck('success', userHTML)
 }
 
 const updateRestaurantFail = () => {
@@ -50,8 +63,10 @@ module.exports = {
   resultCheck,
   indexRestaurantsSuccess,
   indexRestaurantsFail,
+  deleteRestaurantSuccess,
   deleteRestaurantFail,
   createRestaurantSuccess,
   createRestaurantFail,
+  updateRestaurantSuccess,
   updateRestaurantFail
 }

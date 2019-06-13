@@ -26,6 +26,7 @@ const onDeleteRestaurant = (event) => {
   // We write an anonymous function here so we can pass the event from the parent function (onDeleteRestaurant).
   api.deleteRestaurant(restaurantId)
     .then(response => {
+      ui.deleteRestaurantSuccess()
       onIndexRestaurants(event)
     })
     .then(ui.deleteRestaurantFail)
@@ -68,7 +69,7 @@ const onUpdateRestaurant = (event) => {
     .then(responseData => {
       $(`form.return[data-id='${restaurantId}'] input`).prop('disabled', true)
       $(`form.return[data-id='${restaurantId}'] input[type=submit]`).prop('hidden', true)
-      ui.createRestaurantSuccess(responseData)
+      ui.updateRestaurantSuccess(responseData)
     })
     .catch(ui.updateRestaurantFail)
 }
