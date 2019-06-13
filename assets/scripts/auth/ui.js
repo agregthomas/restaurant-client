@@ -51,8 +51,8 @@ const onSignUpFail = (responseData) => {
 
 const onSignInSuccess = (responseData) => {
   $('#results').html('')
-  $('.logged-in').toggle()
-  $('.logged-out').toggle()
+  $('.signed-in').toggle()
+  $('.signed-out').toggle()
 
   const userHTML = `
   <p>Logged in User ID: ${responseData.user.id}</p>
@@ -98,8 +98,8 @@ const onChangePasswordFail = (responseData) => {
 const onSignOutSuccess = (responseData) => {
   $('#results').html('')
   $('#history').html('')
-  $('.logged-in').toggle()
-  $('.logged-out').toggle()
+  $('.signed-in').toggle()
+  $('.signed-out').toggle()
 
   const userHTML = `
   <p>${store.user.email} successfully logged out</p>`

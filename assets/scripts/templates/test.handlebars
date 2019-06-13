@@ -1,0 +1,25 @@
+{{#each restaurants as |restaurant|}}
+  {{log restaurant}}
+  <form class="return" data-id="{{restaurant.id}}">
+    <input
+      class="tst"
+      type="text"
+      name="restaurant[name]" />
+    <input
+      type="text"
+      name="restaurant[scene]" />
+    <input
+      type="submit"
+      value="Tst" />
+  </form>
+  <nav>
+    {{#if (isLoggedIn)}}
+      {{#if restaurant.editable}}
+        <button class="update-restaurant" class="btn btn-danger" data-id="{{restaurant.id}}">Update</button>
+        <button class="delete-restaurant" class="btn btn-danger" data-id="{{restaurant.id}}">Delete</button>
+      {{/if}}
+    {{/if}}
+  </nav>
+  <hr>
+
+{{/each}}

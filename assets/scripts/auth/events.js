@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
+const restaurantEvents = require('../restaurants/events.js')
 
 const onSignUp = (event) => {
   event.preventDefault()
@@ -26,6 +27,7 @@ const onSignIn = (event) => {
   api.signIn(formData)
     .then((responseData) => {
       ui.onSignInSuccess(responseData)
+      restaurantEvents.onLoadRestaurants()
     })
     .catch(ui.onSignInFail)
 }
@@ -58,6 +60,7 @@ const onQuickSignIn = (event) => {
   api.quickSignIn(formData)
     .then((responseData) => {
       ui.onSignInSuccess(responseData)
+      restaurantEvents.onIndexRestaurants()
     })
     .catch(ui.onSignInFail)
 }
