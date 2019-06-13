@@ -12,6 +12,7 @@ const onSignUp = (event) => {
 
   const form = event.target.parentNode
   const formData = getFormFields(form)
+  console.log(formData)
 
   api.signUp(formData)
     .then(ui.onSignUpSuccess)
@@ -21,13 +22,15 @@ const onSignUp = (event) => {
 const onSignIn = (event) => {
   event.preventDefault()
 
-  const form = event.target.parentNode
+  const form = event.target.parentNode.parentNode
   const formData = getFormFields(form)
+  console.log(form)
+  console.log(formData)
 
   api.signIn(formData)
     .then((responseData) => {
       ui.onSignInSuccess(responseData)
-      restaurantEvents.onLoadRestaurants()
+      restaurantEvents.onIndexRestaurants()
     })
     .catch(ui.onSignInFail)
 }
