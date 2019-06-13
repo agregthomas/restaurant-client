@@ -13,6 +13,7 @@ $(() => {
   $(document).ready(() => restEvents.onLoadRestaurants(event))
   // Login/Logout handlers!
   $('#sign-up-button').on('click', authEvents.onSignUp)
+  $('#back').on('click', authEvents.onBack)
   $('#sign-in-button').on('click', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)

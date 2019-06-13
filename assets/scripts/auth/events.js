@@ -8,14 +8,21 @@ const restaurantEvents = require('../restaurants/events.js')
 const onSignUp = (event) => {
   event.preventDefault()
 
-  $('.confirm').removeAttr('hidden')
-
   const form = event.target.parentNode
   const formData = getFormFields(form)
 
   api.signUp(formData)
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFail)
+}
+
+const onBack = (event) => {
+  event.preventDefault()
+
+  $('#results').html('')
+  $('#sign-up').trigger('reset')
+  $('.confirm').toggle()
+  $('#sign-in-button').toggle()
 }
 
 const onSignIn = (event) => {
@@ -70,6 +77,7 @@ const onQuickSignIn = (event) => {
 
 module.exports = {
   onSignUp,
+  onBack,
   onSignIn,
   onChangePassword,
   onSignOut,

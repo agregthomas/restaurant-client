@@ -9,6 +9,7 @@ const onFail = () => $('#sign-up').trigger('reset')
 const onSignUpSuccess = (responseData) => {
   $('#results').html('')
   $('.confirm').toggle()
+  $('#sign-in-button').toggle()
 
   const userHTML = `
   <p>New User ID: ${responseData.user.id}</p>
@@ -22,6 +23,10 @@ const onSignUpSuccess = (responseData) => {
 
 const onSignUpFail = (responseData) => {
   $('#results').html('')
+  if ($(`#sign-up .confirm[type=password]`).val() === '') {
+    $('.confirm').toggle()
+    $('#sign-in-button').toggle()
+  }
 
   // const form = $('#sign-up')
   const form = document.getElementById('sign-up')
